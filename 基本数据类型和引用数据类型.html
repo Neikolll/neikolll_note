@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        基本数据类型(String,Number..)是保存在栈内存中的,
+        基本数据类型的值在栈内存中储存，值与值站之间是独立存在的，修改一个变量不会影响其他变量
+        */
+       var a =123;
+       var b =a;
+       a = 456;
+        console.log(b);//123 b的值不随a的变化而变化
+        /*
+        而对象(Object)是保存在堆内存中的，每创建一个新的对象，就会在堆内存中开辟出一个新的空间，
+        而变量保存的是这个对象的内存地址（对象的引用），如果两个变量保存到是同一个对象引用，
+        当 一个通过一个变量修改属性时，另一个也会收到影响
+
+        */
+       var obj =new Object();
+       var obj2 =obj;
+       obj.name="caicai";
+       //修改obj的name
+       obj.name="菜菜"
+       console.log(obj2);//obj2.name="菜菜";
+       //obj2改变，也会影响到obj1
+       //如果我们把obj2的值设置为null,obj的值不变，还是Object
+       /*当我们比较两个基本数据类型的值时，就是比较值，
+       而比较两个引用数据类型时，是比较对象的内存地址
+       如果两个对象的值是一模一样但是地址不同它也会返回false
+       */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

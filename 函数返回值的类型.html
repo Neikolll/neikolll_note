@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sum(){
+            alert("函数要开始执行了");
+            for (var i=0;i<5;i++){
+                if(i==2){
+                    //break;//使用break可以退出当前循环
+                    //continue;//continue用于跳过当次循环
+                    return;//使用return可以结束整个函数
+                     
+                }
+                console.log(i);
+            }
+            
+            alert("函数执行完毕");
+        }
+        sum();
+        //return的返回值可以是任意的数据类型
+        //也可以是一个对象
+        function fun(){
+            return{name:'caicai'};
+        }
+        var b=fun();
+        console.log(b.name);
+        //在函数内部再声明一个函数
+        function fun2(){
+            function fun3(){
+                alert("我是fun3");
+            }
+            //fun3();//调用这个函数
+            return fun3//将fun3对象作为返回值返回
+        }
+        //fun2();
+        var k = fun2();//返回值就是fun3
+        console.log(k);
+        k();//相当于调用fun3();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

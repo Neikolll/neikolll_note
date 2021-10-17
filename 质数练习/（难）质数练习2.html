@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // //在页面中接受一个用户输入的数字，并判断该数是否是质数
+        // //先排除比2小的数字
+        // var num=prompt("请输入一个大于一的数");
+        // var falg=true;//创建一个变量来保存当前数的状态
+        // for(;num>=2;num++){
+        //     //创建一个除数i
+        //     for(var i=2;i<num;i++){
+        //         if(num%i==0){
+        //             falg=false;
+        //             break
+        //         }
+        //     }
+            
+        // }
+        // if(falg){
+        //     alert(num+"是质数");
+        // }else{
+        //     alert(num+"不是质数");
+        // }
+
+
+
+        //打印出2-100之间的质数
+        /*
+        console.time("计时器的名字");可以用来开启一个计时器
+        他需要一个字符串来作为参数，这个字符串将会作为计时器的标识
+        */console.time("time");
+            var falg=true;
+            var num =2;
+            for(;num<=100;num++){
+               // console.log(num);
+                for(var i =2;i<Math.sqrt(num);i++){
+                    if(num%i==0){
+                        flag=false;
+                        //一旦进入此判断，说明num不可能是质数了，此时再循环已经没有任何意义了
+                        //使用break来结束循环
+                        break;
+                    }
+                }
+            }
+            if(flag){
+                console.log(num);
+            }
+         console.timeEnd("time");
+         //for(var i =2;i<num;i++)这里其实可以做一个开方
+         /*例如：36的因数
+                1 36
+                2 18
+                3 12
+                4 9
+                6 6
+                最后是6，6就等于根号下36，如果到6这里即使后面还有因数的话，也是跟前面重复了
+                如果到根号36之后还没有因数，那么后面就没有必要再看了
+                所以我们可以把for(var i =2;i<num;i++)改为for(var i =2;i<Math.sqrt(num);i++)
+                注：要对以个数进行开方用Math.sqrt()
+         
+         */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

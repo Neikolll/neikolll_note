@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //定义一个函数，用来为指定元素绑定响应函数,既要兼容ie8以下也要兼容其他浏览器
+        /*
+        参数：
+            obj要绑定事件的对象
+            eventStr 事件的字符串（不要on）
+            callback 回调函数
+        */
+       /*
+            element.eddEventListener()的this是这个element
+            而element.attachEvent()的this是window,我们也要统一这两个this
+            而函数.call();可以修改一个函数的this
+       */
+      window.onload=function(){
+          var btn=document.getElementById("btn");
+
+            //我们要兼容浏览器，也就是判断浏览器是否有这个方法
+            //大部分浏览器用的方法
+            //obj.addEventListener(evenStr,callback,false);
+            //ie用的方法
+            //obj.attachEvent("on"+evenStr,callback);
+        //创建函数
+        function bind(obj,evenStr,callback){
+            if(obj.addEventListener){
+                obj.addEventListener(evenStr,callback,false);
+            }else{
+                obj.attachEvent("on"+evenStr,function(){
+                //先在这里我们这个attachEvent的this是window
+                //我们要把他的this变成我们所绑定事件的元素    
+                //我们这里不传callback,传一个匿名函数，然后我们把callback放在匿名函数里面
+                //这时浏览器调用的就是我们这个匿名函数而不是callback
+                    //然后我们再把callback的this改成obj就ok了
+                    callback.call(obj);
+                });
+              
+            }
+        }
+
+        //调用
+        bind(btn,'click',function(){
+            alert(1);
+        });
+
+            
+      }
+    </script>
+</head>
+<body>
+    <button id="btn">点我以下</button>
+</body>
+</html>

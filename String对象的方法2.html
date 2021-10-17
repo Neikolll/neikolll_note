@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          /*
+        slice();
+        -可以从字符串中截取指定的内容
+        -不会影响原字符串，而是将截取到的内容返回
+        -参数：
+            第一个：开始位置的索引(包括开始位置)
+            第二个：结束位置的索引(不包括结束位置)
+            -也可以传递一个负数作为参数，负数的话将会从后边计算
+    */
+   var str="abcdef";
+   result=str.slice(1,4);
+   console.log(result);//bcd
+   /*
+        substring()
+        -可以用来截取一个字符串，与slice()类似
+        -参数：
+            第一个：开始截取位置的索引(包括开始位置)
+            第二个：结束位置的索引(不包括结束位置)
+            -与slice不同的是这个方法不能接受负值作为参数
+            如果传递了一个负值，则默认使用0
+            而且他还会自动调整参数的位置，如果第二个参数小于第一个，则自动交换
+   
+   */
+  result=str.substring(0,1);
+  console.log(result);
+  /*
+        split()
+        -可以将一个字符串拆分为一个数组
+        -参数:
+        -需要一个字符串作为参数，将会根据该字符串去拆分数组
+        -如果用一个空串来作为参数，则会将每一个字符都拆分成为数组中的一个元素
+  */
+ str="abc,bcd,efg";
+ result=str.split(",")
+ console.log(Array.isArray(result));//true
+ console.log(result[0]);//abc
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

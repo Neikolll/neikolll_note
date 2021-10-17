@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+
+        body {
+            height: 1500px;
+        }
+    </style>
+    <script>
+        /*让div跟着鼠标移动*/
+        window.onload = function () {
+            //获取div
+            var box1 = document.getElementById("box1");
+            //因为是让box1在document中移动，所以需要为document绑定一个鼠标移动响应函数
+            document.onmousemove = function (event) {
+                //解决兼容性问题
+                event = event || window.event;
+                //获取鼠标移动坐标
+                var x = event.clientX;
+                var y = event.clientY;
+                // var x=event.pageX
+                // var y=event.pageY;
+                //设置div的偏移量
+                //style.left用来设置偏移量（必须开启定位才有效果）
+                //它与offsetLeft的区别是offsetLeft是只读的，而style.left可以修改
+                // box1.style.left=x+"px";
+                // box1.style.top=y+"px"-clientHeight-scrollTop;
+                //这样就可以使div跟着鼠标移动，但还有一个问题是，如果我们吧body的高度调高
+                //clientX是相对于可见窗口的，是相对于可见窗口的坐标，他的00点是可见窗口的00点
+                //而div的偏移量是相对于整个页面的，他的00点是整个页面的00点
+                //pageX和pageY就可以获取当前鼠标相对于整个页面内的坐标
+                //所以我们可以把event.clientX改成event.pageX就可以了
+                //但是有些浏览器不兼容pageX,所以针对于clientX我们还需要想个办法
+                //我们可以看到当设置成client时，div向上的距离就是我们body滚动条滚动的距离
+                //所以我们只要把可见窗口的高度加上滚动条滚动的距离就可以了
+                //chrom浏览器认为滚动条是body的而其他浏览器认为滚动条是html的
+                //所以我们还需要分情况讨论
+                //获取body的scrollTop
+                //var bs = document.body.scrollTop;
+                //获取html的scrollTop
+                //var hs=document.documentElement.scrollTop;
+                //分情况
+                var ts=document.body.scrollTop||document.documentElement.scrollTop;
+                var ws=document.body.scrollLeft||document.documentElement.scrollLeft;//左右的滚动条也一样
+                //设置div的偏移量
+                box1.style.left =x+ws+"px";
+                box1.style.top=y+ts+"px";
+
+
+
+
+
+            }
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

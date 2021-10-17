@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*代码块
+                我们的程序是油一条一条语句构成的
+               - 语句是按照自上向下的顺序一条条执行的
+                在js中可以使用{}对语句进行分组
+               -三个语句放在一个大括号里表明这三个语句是一组，要么就都执行要么就都不执行
+               -一个{}语句我们也成为一个代码块
+               -代码块后面就不用再写;了
+        */
+       //三个语句放在一个大括号里表明这三个语句是一组，要么就都执行要么就都不执行
+       {
+           alert('hello');
+           console.log('hello');
+           document.write("hello");
+       }
+       /*流程控制语句
+           -通过流程控制语句可以控制程序执行流程，使程序可以根据一定的条件选择执行
+           -语句的分类：
+                1.条件判断语句
+                2.条件分支语句
+                3.循环语句
+      1.条件判断语句(if语句)
+             -使用判断语句可以在执行某个语句之前进行条件的判断
+             如果条件成立则执行语句，条件不成立则语句不执行
+             -语法：if(条件表达式){
+                        语句}
+             -if语句在执行时会对条件表达式进行求值判断，如果表达之的值为true则会执行if后的语句
+             反之不会执行          
+             -if语句只能控制紧随其后的那个语句,如果想控制多条语句需要给这几条语句变成一个代码块
+
+
+
+       */
+     var a=10;
+     if(a>1)
+     { alert("a比10大");
+       alert('啦啦啦');
+    }
+    var b=30;
+    if(b>10&&b<=30){
+        alert('b真的厉害');
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

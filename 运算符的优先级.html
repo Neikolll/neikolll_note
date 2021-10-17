@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        ,运算符
+            使用,可以分割多个语句，一般可以在声明多个变量时使用
+             例如var a=1 var b=3 var =3;可以写成var a=1,b=2,c=3;
+        优先级
+            与数学一样,js中运算符也有优先级比如先乘除后加减
+            在js中有个运算符优先级表，约考上的符号优先级越高，优先级越高越优先计算，优先级一样则
+            从左往右计算
+            -可以使用()来提高优先级，希望先算什么就可以给它加一个()就优先计算
+        */
+       var result=(1||2)&&3;
+       console.log("result"+result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

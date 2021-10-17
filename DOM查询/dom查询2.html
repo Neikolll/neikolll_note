@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /*  获取元素的子节点
+    -通过具体的元素节点调用
+    1.getElementByTagName()
+    -方法，返回当前节点的指定标签名后代节点
+    2.childNodes
+    -属性，表示当前节点的所有子节点(包括空白文本节点)
+    3.firstChild
+    -属性，表示当前节点的第一个子节点(包括空白文本节点)
+    4.lastChild
+    -属性，表示当前节点的最后一个子节点(包括空白文本节点)
+    5.children
+    -属性，用来返回当前元素下的所有子元素
+    */
+   //查找#city下的所有子节点
+   window.onload=function(){
+       //获取btn04的信息
+       var btn04=document.getElementById("btn04");
+       //为btn04绑定一个单机响应函数
+       btn04.onclick=function(){
+           //alert("你好");
+           //获取id为city的元素信息
+        var city= document.getElementById('city');
+        //alert(city);
+            //查找#city下的所有子节点
+        //var cityNodes=city.childNodes;
+        /*childNodes属性会获取包括文本节点在内的所有节点，city下面有四个子元素li，但是返回长度却是9就是因为把代码里面各个li直接的空行也算上了
+        也就是说根据DOM之间的空白也会当成文本节点
+        所以我们如果不让他返回文本节点，就得把所有li写在一行
+        注意：在IE8以下的浏览器中，不会将空白文本当成子节点，所以该属性在IE8中会返回4个子元素
+        而其他浏览器是9个*/
+
+        //遍历cityNodes
+        // for(var i=0;i<cityNodes.length;i++){
+            // alert(cityNodes[i]);
+        // }
+        //children属性可以获取当前元素的所有子元素（不包括文本节点）所以我们可以用children属性更好
+        var cityNodes=city.children;
+        //遍历
+        for(var i=0;i<cityNodes.length;i++){
+            alert(cityNodes[i].innerHTML);
+        }
+
+       }
+       //查找#phone的第一个子节点
+       //获取btn05的信息
+       var btn05=document.getElementById("btn05");
+       //为btn05绑定一个单价响应函数
+       btn05.onclick=function(){
+           //获取#phine信息
+           var phone=document.getElementById("phone");
+           //返回phone的第一个子节点
+           var fir=phone.firstChild;
+           //firstElementChild获取当前元素的第一个子元素（不包括空白）,不兼容ie8以下的浏览器
+           alert(fir.innerHTML);
+       }
+       
+   }
+
+</script>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="game">
+        <li>lol</li>
+        <li>金铲铲</li>
+        <li>天刀</li>
+        <li>吃鸡</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="phone"><li>IOS</li>
+        <li>Android</li>
+        <li>Windows Phone</li>   
+    </ul>
+    <br>
+    <br>
+    <div class="inner">
+        <input class="hello" type="radio" name="gender" value="male"/>
+        Male
+        <input class="hello" type="radio" name="gender" value="female"/>
+        Female
+        <br>
+        <br>
+        <div><button id="btn01">查找#bj节点</button></div>
+        <div><button id="btn02">查找所有li节点</button></div>
+        <div><button id="btn03">查找name=gender节点</button></div>
+        <div><button id="btn04">查找#city下的所有子节点</button></div>
+        <div><button id="btn05">查找#phone的第一个子节点</button></div>
+
+</body>
+</html>

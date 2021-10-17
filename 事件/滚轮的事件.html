@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            min-height: 100px;
+        }
+    </style>
+    <script>
+        /*
+            鼠标滚轮往下滚div随着滚轮的滚动变大往上滚div随着滚轮的滚动变小
+
+        -   onmousewheel
+            -当鼠标滚轮滚动时会触发此事件
+            但是不支持火狐浏览器
+        -在火狐中需要使用DOMMouseScroll来绑定滚动事件
+            DOMMouseScroll事件需要通过addEventListener()函数来绑定
+        -event.wheelDelta可以获取鼠标滚轮滚动的方向，这个值不看大小只看正负，不支持火狐
+            chrom向上滑为正，向下为负
+        -在火狐中使用event.detail来获取鼠标滚轮滚动的方向
+            火狐向上为负，向下为正
+        
+        */
+       window.onload=function(){
+            var box1=document.getElementById("box1");
+            //为box1绑定一个滚轮事件
+        function fun(event){
+            //判断鼠标滚轮滚动的方向
+            var a=event.wheelDelta;
+            var b=event.detail;
+            if(a>0||b<0){
+                //alert(1);
+                //向上滚box1变短
+                box1.style.height=box1.clientHeight-10+"px";
+            }else{
+               // alert(2);
+               //向下滚box1变长
+               box1.style.height=box1.clientHeight+10+"px";
+            }
+            //当滚动div时候，如果浏览器有滚动条，滚动条会随之滚动，这是浏览器默认行为
+            //如果不希望发生，则可以用rturen false取消默认行为;
+            
+            //使用addEventListener()方法绑定响应函数，取消默认行为时，不能使用rturen false
+            //需要使用event.preventDefault()来取消默认行为,但是这个方法不支持ie8,会报错
+            event.preventDefault()&&event.preventDefault();
+            return false;
+            
+            
+        }
+        box1.onmousewheel=fun;
+        box1.addEventListener('DOMMouseScroll',fun);
+            
+
+       }
+    </script>
+</head>
+<body style="height: 2000px;">
+    <div id="box1">
+
+    </div>
+</body>
+</html>

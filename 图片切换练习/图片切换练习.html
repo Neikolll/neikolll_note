@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 440px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        //点击按钮切换图片
+        window.onload=function(){
+        //获取按钮id信息
+        var previous=document.getElementById("previous");
+        var next=document.getElementById("next");
+        //获取img的信息
+        var img=document.getElementsByTagName("img")[0]//第一张图
+        //创建一个数组，获取图片的路径
+        var imgArr=['./img/1.jpg','./img/2.jpg','./img/3.jpg','./img/4.jpg','./img/5.jpg']
+        //创建一个变量，来表示当前显示图片的索引
+        var index=0;
+        //获取id为cat的p元素
+        var cat=document.getElementById("cat");
+        //设置p元素里的文字
+        cat.innerHTML="一共"+imgArr.length+"只喵"+","+"当前是第"+(index+1)+"只"
+        //先把两个按钮绑定单机响应函数
+        previous.onclick=function(){
+            //alert("上一张");
+            //切换到上一张就是index自减
+            index--
+            //如果第一张再点一下上一页就让他回到最后一张
+            if(index<0){
+                index=imgArr.length-1;
+            }
+            //要切换图片就是要切换图片的src
+            img.src=imgArr[index];
+            //设置p元素里的文字
+        cat.innerHTML="一共"+imgArr.length+"只喵"+","+"当前是第"+(index+1)+"只"
+            
+        }
+
+        next.onclick=function(){
+            //alert("下一张");
+            //要修改一个元素的属性就是元素.属性=属性值
+            //切换到下一张，索引应该自增
+            index++
+            
+            //如果当前位置在最后一张，点击下一页回到第一张
+            if(index>imgArr.length-1){
+                index=0;
+            }
+            img.src=imgArr[index];//图片再数组里，这里用索引来获取图片
+            //设置p元素里的文字
+        cat.innerHTML="一共"+imgArr.length+"只喵"+","+"当前是第"+(index+1)+"只"
+        }
+
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <p id="cat">一共5只喵，当前是第1只喵~</p>
+        <img src="./img/1.jpg" alt="cat">
+        <br>
+        <button id="previous">上一张</button><button id="next">下一张</button>
+    </div>
+</body>
+</html>

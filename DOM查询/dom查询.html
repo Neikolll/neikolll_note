@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //查找#bj节点
+            //首先要获取btn01对象，然后为btn01的按钮绑定一个单机响应函数
+            var btn01=document.getElementById("btn01");
+            btn01.onclick=function(){
+                //查找#bj节点
+                var bj=document.getElementById("bj");
+                //打印北京
+                //innerHTML通过这个属性可以获取到元素内部的html代码
+                alert(bj.innerHTML);
+            }
+            //查找所有li节点
+            //为btn2绑定一个单机响应函数
+            var btn02=document.getElementById("btn02");
+            btn02.onclick=function(){
+                //查找所有li节点
+                var lis=document.getElementsByTagName("li");
+                //getElementsByTagName()可以根据标签名来获取一组元素节点对象
+                //这个方法会给我们返回一个类数组对象，所有查询到的元素都会封装到对象中
+               
+                //打印lis
+                //alert(lis.length);
+                //遍历lis这个数组
+                for(var i=0;i<lis.length;i++){
+                     alert(lis[i].innerHTML);
+                 }
+            }
+            //查找name=gender节点
+            var btn03=document.getElementById("btn03");
+            //为btn03添加单机响应函数
+            btn03.onclick=function(){
+                //查找name=gender节点
+                 var inputs=document.getElementsByName("gender");
+                 //遍历这个数组
+                 for (var i=0;i<inputs.length;i++) {
+                     //innerHTML用于获取元素内部的HTML代码的，而input是自结束标签，没有内部
+                     //inner.HTML对于自结束标签没有意义
+                     //alert(inputs[i].innerHTML);
+                     //如果我们需要读取元素节点的属性直接使用元素.属性名就可以了，例如：元素.id 元素.name 元素.value
+                     alert(inputs[i].name);
+                     //如果我们想要读取call属性,不能采用元素.class这中方式
+                     //读取class属性时需要使用元素.className
+                    //alert(inputs[i].className);
+                 }
+                     
+                 }
+
+                
+            }
+        
+    </script>
+</head>
+
+<body>
+    <!-- 通过document对象调用
+    1.getElementById()
+    -通过id属性获取一个元素节点对象
+    2.getElementsByTagName()
+    -通过标签名获取一组元素节点对象
+    3.getElementsByName()
+    -通过name属性获取一组元素节点对象-->
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="game">
+        <li>lol</li>
+        <li>金铲铲</li>
+        <li>天刀</li>
+        <li>吃鸡</li>
+    </ul>
+    <br>
+    <br>
+    <div class="inner">
+        <input class="hello" type="radio" name="gender" value="male"/>
+        Male
+        <input class="hello" type="radio" name="gender" value="female"/>
+        Female
+        <br>
+        <br>
+        <div><button id="btn01">查找#bj节点</button></div>
+        <div><button id="btn02">查找所有li节点</button></div>
+        <div><button id="btn03">查找name=gender节点</button></div>
+        
+        
+
+    </div>
+
+</body>
+</html>

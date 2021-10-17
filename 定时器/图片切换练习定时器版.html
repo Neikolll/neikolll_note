@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //按开始键图片开始切换按停止键图片停止切换
+            //切换图片也就是切换图片的src值
+           var img=document.getElementById('img');
+           var btn01=document.getElementById('btn01');
+           var btn02=document.getElementById('btn02');
+           /*
+            目前我们每点击一次按钮就会绑定一个计时器，所以我们连续点，图片就会切换的越来越快
+            所以我们要绑定在一个计算器里
+            -所在开启定时器之前需要关闭上一个计时器
+           */
+            //先创建一个数组来保存这些图片
+            var arr=["./img/1.jpg","./img/2.jpg","./img/3.jpg","./img/4.jpg","./img/5.jpg"];
+            //创建封装图片索引的变量
+            var i=0;
+            //创建一个变量来保存定时器的标识
+            var timer;
+            btn01.onclick=function(){
+                //关闭上一个计时器
+                clearInterval(timer);
+            //创建定时器
+            timer=setInterval(function(){
+                i++
+                //判断索引是否超过最大索引
+                if(i>=arr.length){
+                    i=0;
+                }
+                img.src=arr[i];
+
+            },1000)
+            }
+            //设置停止
+            btn02.onclick=function(){
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="./img/1.jpg" id="img">
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info{
+            width: 200px;
+            height: 400px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        /*当垂直滚动条滚动到底时，表单可用*/
+        //onscroll该事件会在元素滚动条滚动的时候触发
+
+        
+        window.onload=function(){
+            //获取两个input和div
+            var button=document.getElementsByTagName("input");
+            var info=document.getElementById("info");
+            //为info绑定滚动触发响应函数
+            info.onscroll=function(){
+                //alert(1);
+                //当垂直滚动条滚动到底时，两个input可以被点击
+                if(info.scrollHeight-info.scrollTop==info.clientHeight){
+                    //如果滚动条滚动到底，则input的disabled值为false
+                    button[0].disabled=false;
+                    button[1].disabled=false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="info">
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha、
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha、
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+        hahahahahahahhahahahahhahahahahahhaha
+    </div>
+    <!-- disabled属性可以设置该表单不可点 -->
+    <input type="checkbox" disabled="disabled">我同意并遵守该条款
+    <input type="submit" value="注册" disabled="disabled">
+</body>
+</html>

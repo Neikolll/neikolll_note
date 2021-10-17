@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color:pink;
+        }
+        #sp1{
+            background-color: yellow;
+        }
+
+    </style>
+    <script>
+        /*
+            事件的冒泡
+            -所谓的冒泡就是事件的向上传导，当后代元素的事件被触发时，其祖先元素的相同事件也会
+            被触发。
+            -冒泡大部分时候都是有用的，但是当我们不需要冒泡的时候也可以取消
+            -使用event.cancelBubble=true;来取消冒泡
+        */
+       window.onload=function(){
+           var box1=document.getElementById("box1");
+           var sp1=document.getElementById("sp1");
+           var body=document.body;
+           //绑定单及相应函数
+            box1.onclick=function(event){
+                alert("我是box1");
+                //取消冒泡
+                event.cancelBubble=true;
+            }
+            sp1.onclick=function(event){
+                alert("我是span");
+                //取消冒泡
+                event.cancelBubble=true;
+            }
+            body.onclick=function(){
+                alert("我是body")
+            }
+       }
+    </script>
+</head>
+<body>
+    <div id="box1">
+        <span id="sp1">我是span</span>
+    </div>
+</body>
+</html>

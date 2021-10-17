@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*通过关系运算符可以比较两个值之间的关系
+        大于号>
+           -判断符号左侧是否大于符号右侧
+           -如果关系成立则返回true不成立则返回false
+        大于等于>=
+           -判断符号左侧是否大于等于符号右侧
+           -如果关系成立则返回true不成立则返回false
+        小于号<
+           -判断符号左侧是否小于符号右侧
+        小于等于<=
+           -判断符号左侧是否小于等于符号右侧
+        非数值的情况：
+           -对于非数值比较时，会将其转换为数字然后再比较
+           -任何值与NaN作比较都是false
+           -如果两侧的值都是字符串，则不会将其转换为数字进行比较，而是比较字符串的Unicode编码
+            比较字符编码是一位一位比较比如说"abc"<"b" 先是"a"和"b"比，"a"比"b"小所以直接返回false
+            如果两位一样则比较下一位例如"bbc"<"b"
+            -注：如果比较两个字符串类型的数字时可能会有不可预期的结果,所以在进行两个字符串类型的
+            数字进行比较时一定一定要进行转型
+            我们做购物车计算时就是用两个字符串，所以一定要转型！！
+        Unicode编码表
+        在字符串中使用转义字符输入Unicode编码（在script中）
+          语法：\u四位编码
+        在网页中使用转义字符（在body中）
+          语法：&#编码;(在网中使用要把编码转换成10进制)
+        */
+       var result=5<4;
+       console.log("result="+result);//false
+       //非布尔值的情况、
+       var a=1>true;
+       console.log(a);
+       var b="3">2;
+       console.log(b);
+       //NaN值与人任何值作比较
+       var cai = "hello"<1;
+       console.log(cai);//false
+       //两个字符串时
+       cai="1"<"0";
+       console.log(cai);
+       cai ="11"<"5";
+       console.log(cai);//true
+       cai="112">+"67"//这里给'67'进行转型，转成number
+       console.log(cai);//true
+       //在字符串中使用转义字符输入Unicode编码
+       console.log("\u2620");
+        
+
+
+
+
+
+       
+       
+
+    </script>
+</head>
+<body>
+    <h1>&#9760;</h1>
+    
+</body>
+</html>

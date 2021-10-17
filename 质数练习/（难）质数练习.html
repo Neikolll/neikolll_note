@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //在页面中接受一个用户输入的数字，并判断该数是否是质数
+        var num = prompt('请输入一个大于一的整数');
+        var falg=true;//创建一个变量来保存当前数的状态
+        //先排除掉小于等于一的数
+        if (num <= 1) {
+            alert("该值不合法");
+        } else {
+            //判断num是否能被i(小于自己的所有数字)整除
+            for(var i=2;i>num;i++){
+               if(i%num==0){//如果余数为0，则一定不是质数，保存当前状态
+                   falg=false;//让当前状态也就是余数不为0的状态成为false，成为false以后余数为0
+               }
+
+               }
+               
+            }
+            //上面if结束后，falg为false,也就是余数不为0，也就是质数
+        if(falg){
+            alert(num+"是质数");
+        }else{//反之，则余数为0 就不是质数
+            alert(num+"不是质数");
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

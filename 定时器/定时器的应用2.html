@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /*
+            定义一个函数，可以执行简单动画          
+        */
+        var timer;
+        function move(obj, speed, target) {
+            //关闭上一个定时器
+            clearInterval(timer);
+            timer = setInterval(function () {
+                //获取开始的left
+                var info = getComputedStyle(obj, null);
+                var oldLeft = info.left;
+                //用parseInt把获取到的原来的值转换为number
+                var oldLeftNum = parseInt(oldLeft);
+                //alert(oldLeftNum);//8
+                //建立新的left 也就是在旧值的基础上增加
+                var newLeft = oldLeftNum + speed;
+                //先判断speed是正是负,是正就是向右移动，是负就是向左移动
+                //当向左移动时，要判断newLeft是否大于目标值，如果大于目标值就让他等于目标值
+                //当向右移动时，要判断newLeft是否小于目标值，如果小于目标值就让他等于目标值
+                //再来固定他的目标参数
+                if (speed > 0 && newLeft > target || speed < 0 && newLeft < target) {
+                    newLeft = target;
+                }
+                //把新值付给obj
+                obj.style.left = newLeft + "px";
+                //当对象移动到目标位置时，关闭定时器
+                if (newLeft == target) {
+                    clearInterval(timer);
+                }
+
+
+            }, 50)
+
+
+        }
+        window.onload = function () {
+            var box1 = document.getElementById('box1');
+            var btn01 = document.getElementById('btn01');
+            btn01.onclick = function () {
+                move(box1, 10, 800);
+            }
+            var btn02 = document.getElementById('btn02');
+            btn02.onclick=function(){
+                move(box1,-10,0);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn01">点击按钮使box1向右移动</button>
+    <button id="btn02">点击按钮使box2向左移动</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+</body>
+
+</html>

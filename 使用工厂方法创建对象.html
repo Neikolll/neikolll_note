@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        //用工厂方式创建对象,相当于把一个对象不用复制粘贴的方式，而是用函数的方式创建其他同类型的对象
+        // function CreatPeople(){
+        //     //创建一个对象
+        //     var obj=new Object();
+        //     //向对象中添加属性
+        //     obj.name="孙悟空";
+        //     obj.age=18;
+        //     obj.address='花果山';
+        //     obj.sayName=function sayName(){
+        //         alert(this.name);
+        //     }
+        //     //将新的对象返回
+        //     return obj;
+        // }
+        // //用调用函数的方式来创建对象
+        // var obj2=CreatPeople();
+        // console.log(obj2);
+        //可以定义形参不让它写死
+        function CreatPeople(name,age,address){
+            //创建一个对象
+            var obj=new Object();
+            //向对象中添加属性
+            obj.name=name;//让属性值等于形参
+            obj.age=age;
+            obj.address=address;
+            obj.sayName=function sayName(){
+                alert(this.name);
+            }
+            //将新的对象返回
+            return obj;
+        }
+        //用调用函数的方式来创建对象
+        var obj2=CreatPeople("猪八戒",18,"高老庄");//设置值
+        console.log(obj2);
+       
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

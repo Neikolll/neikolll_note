@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对象的属性可以是任何的数据类型，也可以是个函数
+        var obj=new Object();
+        obj.name="caicai";
+        obj.age=21;
+        obj.sayName=function(){
+            console.log(obj.name);
+        };
+        obj.sayName();
+        /*
+            函数也可以作为对象的属性，
+            如果一个函数作为一个对象的属性保存，
+            那么我们成这个函数是这个对象的方法
+            调用这个函数就是调用对象的方法(method)
+            但是它只是名称上的区别，没有其他区别
+        */
+       //也可以简化成这样写
+        obj2={
+            name :"caicai",
+            age:21,
+            addrass:"Beijing",
+            sayName:function(){
+                console.log(obj2.name);
+            
+            }
+
+        }
+        obj2.sayName;
+        //枚举对象中的属性(把对象中的属性一个一个举出来)
+        //使用for...in语句
+        /*
+            语法：
+                for(var 变量 in 对象){
+
+                }
+        for...in语句 对象中有几个属性，循环体就会执行几次
+        每次执行时，会将对象中的一个属性的名字赋值给变量
+        
+        */
+       for(var a in obj2){
+           console.log("hello");//obj2里有几个属性就会打印几个hello
+           console.log([a]);//中括号加变量可以把obj2里的所有属性值打印出来
+           console.log("属性名"+a);//可以把obj2里的属性名打印出来
+       }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

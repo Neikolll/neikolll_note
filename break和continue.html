@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /*
+    break关键字可以用来退出switch或循环语句
+    不能在if语句中使用break和continue
+    break关键字会立即终止离他最近的那个循环语句
+    
+    */
+   //break关键字可以用来退出for循环
+   for(var a=0;a<10;a++){
+       console.log('a='+a);
+       break
+   }
+   for(var b=0;b<10;b++){
+    console.log('b='+b);
+    if (b==5) {
+        break//这里的break终止的不是if语句而是上面的for循环
+      }
+       
+   }
+   //break关键字会立即终止离他最近的那个循环语句
+//    for(var c=0;c<10;c++){
+//        console.log("外层循环"+c);
+//        for(var i=1;1<5;i++){
+//            break
+//            console.log("内层循环"+i);
+//        }
+//    }
+   //可以为循环起一个名字(这里叫lable,可替换)，来标识当前的循环
+   //lable:循环语句
+   //使用break语句时，可以在break后面跟一个lable
+   //这样break会结束指定的循环,而不是最近的
+   lable:
+   for(var c=0;c<10;c++){
+       console.log("外层循环"+c);
+       for(var i=1;1<5;i++){
+           break lable;
+           console.log("内层循环"+i);
+       }
+   }
+   //continue可以用来跳过当次循环
+   //continue也是默认只会对离他近的循环起作用
+for(var w=0;w<10;w++){
+    if (w==2) {
+        continue
+    }
+    console.log(w)
+}
+
+
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str="Hello";
+        /*
+        在底层字符串是以字符数组的形式保存的
+        例如:["H","e","l","l","o"]
+        所以他也可以用数组的属性
+        例如用length来获取字符串的长度
+        还可以用索引等等
+        */
+       console.log(str.length);//5
+       console.log(str[0]);//H
+       /*
+            charAt()
+            -可以返回字符串中指定位置的字符
+            -根据索引获取指定的字符
+            跟上面直接用索引一样
+       */
+      var str2 ="Hello Caicai";
+      console.log(str2.charAt[3]);//l
+      /*
+            charCodeAt()
+            -获取指定位置的字符编码(Unicode编码)
+      */
+     var result=str2.charCodeAt(0);//获取H的Unicode编码
+     console.log(result);//72
+     /*
+            String.formCharCode()
+            -可以根据字符编码去获取字符
+     */
+    result=String.fromCharCode(2021);//字符编码为2021的字符
+    console.log(result);
+    /*
+        indexOf()
+        -该方法可以检查一个字符串中是否含有指定内容
+        -如果字符串中含有该内容，则会返回其第一次出现的索引
+            如果没有找到指定的内容，则返回-1
+        -可以指定一个第二个参数，表示从哪个索引开始查找
+        lastIndexOf();
+        -该方法的用法和indexOf()一样，
+        不同的是indexOf是从前往后找
+        lastIndexOf()是从后往前找
+    */
+    str="hello neikolll";
+    //result=str5.indexOf("p");//-1
+    result=str.indexOf("l",3);//从索引为3的字符开始查找"l"
+  
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

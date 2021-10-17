@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            点击button可以创建一个新的超链接
+            且为每一个超链接（包括添加的新的超链接）绑定一个单机响应函数
+            不管点哪个超链接都会弹出'我是超链接'
+            我们希望只绑定一次事件，即可应用到多个元素上，即使元素是后添加的
+        */
+        window.onload = function () {
+            var ul = document.getElementById("ul");
+            var li = document.getElementsByTagName("li");
+            var btn = document.getElementById("btn");
+            var a=document.getElementsByClassName("link");
+            //为btn绑定单机响应函数
+            btn.onclick = function () {
+                //alert(1);
+                //当我们点击btn按钮时候会添加一个新的li
+                var li2=document.createElement("li");
+                //添加a到li里面
+                li2.innerHTML="<a href='javascript:;' class='link'>超链接</a>";
+                //将li添加到ul中
+                ul.appendChild(li2);
+            }
+            //我们希望只绑定一次事件，即可应用到多个元素上，即使元素是后添加的
+            //我们可以尝试将其绑定给元素的共同祖先元素上
+            /*
+                事件的委派
+                -指将事件绑定给元素的共同的祖先元素，这样当后代元素上的事件触发时，会一直冒泡
+                到祖先元素，从而通过祖先元素的响应函数来处理事件
+                -事件委派是利用冒泡，通过委派可以减少事件绑定的次数，提高程序性能
+
+            */
+            ul.onclick=function(event){
+               // alert("我是超链接");
+               //现在就是我们不管点击ul的哪里都会弹出'我是超链接'
+               //所以要分情况讨论：当点击指定一个地方的时候开始冒泡，而点击其他地方则不冒泡
+               //点击什么地方只有浏览器知道所以我们要用到event
+               //target  -返回触发此事件的元素 用法：event.targrt.id==,或者event.targrt.className==
+               
+               //解决兼容性问题
+            //    event=event||window.event;
+            //    //如果触发事件的对象是我们期望的元素则执行，否则不执行
+            //    if(event.target.className=="link"){
+                alert("我是超链接");
+            //    }
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">新超链接</button>
+    <ul id="ul">
+        <li><a href="javascript:;" class="link">超链接1</a></li>
+        <li><a href="javascript:;" class="link">超链接2</a></li>
+        <li><a href="javascript:;" class="link">超链接3</a></li>
+    </ul>
+</body>
+
+</html>

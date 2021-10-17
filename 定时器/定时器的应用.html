@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /*
+            点击按钮以后box1向右移动
+        */
+       window.onload=function(){
+           var box1=document.getElementById('box1');
+           var btn01=document.getElementById('btn01');
+           var timer;
+           //点击按钮以后向右移动也就改变box1的left值
+           //为btn01创建一个单机响应函数
+           btn01.onclick=function(){
+               //关闭上一个定时器
+               clearInterval(timer);
+               timer=setInterval(function(){
+                //获取div开始的left
+                var obj=getComputedStyle(box1,null);
+                var oldLeft=obj.left;
+                //用parseInt把获取到的原来的值转换为number
+                var oldLeftNum=parseInt(oldLeft);
+                //alert(oldLeftNum);//8
+                //建立新的left 也就是在旧值的基础上增加
+                var newLeft=oldLeftNum+30;
+                //我们想让这这个box1再800px的时候停下来，也就是当他超过800像素时我们让他等于800像素
+                if(newLeft>800){
+                    newLeft=800;
+                }
+                //把新值付给box1
+                box1.style.left=newLeft+"px";
+                //此时我们点击按钮,我们的box1停不下来了，所以我们要给box1设置个最大值让他停下来
+                if(newLeft==800){
+                    clearInterval(timer);
+                }
+
+                
+
+               },100)
+               
+           }
+
+       }
+    </script>
+</head>
+
+<body>
+    <button id="btn01">点击按钮使box1向右移动</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+</body>
+
+</html>

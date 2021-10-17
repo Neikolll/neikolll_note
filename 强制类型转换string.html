@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*将其他数据类型转换为字符串
+               方式一：调用被转换数据类型的tostring()方法
+               调用xxx的yyy()方法：xxxx.yyy()
+               但是null和undefinde没有tostring方法
+               
+        */
+       var a =123;
+       a=a.toString()
+
+        /* 方式二：调用String()函数，来将a转换为字符串
+            这个方法对于number和boolean实际上就是调用他们的tostring方法
+            但是对于null和boolean他会将字面量null和undefinde直接转换为
+            "null"和'undefinde'
+             */
+        a =null
+        a =sting(a)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

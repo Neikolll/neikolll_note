@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            获取父节点和兄弟节点
+            1.parentNode
+            -属性，表示当前节点的父节点
+            2.previousSibling
+            -属性，表示当前节点的前一个兄弟节点
+            3.nextSibling
+            -属性，表示当前节点的后一个兄弟节点
+        */
+    function myClick(idStr , fun){
+        var btn=document.getElementById("idStr");
+        btn.onclick = fun;
+      }
+     window.onload=function(){
+        //查找#bj的父节点
+        //获取btn06信息
+        // var btn06=document.getElementById("btn06");
+        // //为btn06创建一个单机响应函数
+        // btn06.onclick=function(){
+        //     // alert('hello');
+        //     //获取#bj的信息
+        //     var bj=document.getElementById("bj");
+        //     //获取#bj的父节点
+        //     var bjd=bj.parentNode;
+        //     alert(bjd.innerHTML);
+        /*
+            由于我们dom查询每次都要重复绑定单机响应这个动作，所以我们可以创建一个函数，来使这个
+            步骤更加简单
+        */
+       //定义一个函数
+       /*
+        参数：
+        idStr:要绑定单机响应函数的对象的id属性值
+        fun:事件的回调函数，当单机元素时，该函数将会被触发
+       */
+    //   function MyClick(idStr,fun){
+    //     var btn=document.getElementById("idStr")
+    //     btn.onclick=fun;
+    //   }
+      //查找#bj的父节点
+      myClick("btn06",function(){
+          alert("hello");
+          //返回#bj的父节点
+          //获取bj的信息
+        //   var bj=document.getElementById("bj");
+        //   //获取#bj的父节点
+        //   var bjd=bj.parentNode;
+        //   alert(bj.innerHTML);
+      })
+     
+     }  
+        
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="game">
+        <li>lol</li>
+        <li>金铲铲</li>
+        <li>天刀</li>
+        <li>吃鸡</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="phone"><li>IOS</li>
+        <li>Android</li>
+        <li>Windows Phone</li>   
+    </ul>
+    <br>
+    <br>
+    <div class="inner">
+        <input class="hello" type="radio" name="gender" value="male"/>
+        Male
+        <input class="hello" type="radio" name="gender" value="female"/>
+        Female
+        <br>
+        <br>
+        <div><button id="btn01">查找#bj节点</button></div>
+        <div><button id="btn02">查找所有li节点</button></div>
+        <div><button id="btn03">查找name=gender节点</button></div>
+        <div><button id="btn04">查找#city下的所有子节点</button></div>
+        <div><button id="btn05">查找#phone的第一个子节点</button></div>
+        <div><button id="btn06">查找#bj的父节点</button></div>
+
+</body>
+</html>

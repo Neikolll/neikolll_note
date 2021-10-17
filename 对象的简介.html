@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        js中数据类型
+        number 数字
+        boolean布尔值
+        string字符串
+        null空
+        undefinde未定义
+        以上这五种类型属于基本数据类型，以后我们看到的值不是上面五种，就是Object
+        object对象 
+
+        基本数据类型都是单一的值，值和值之间没有任何的练习
+
+        在JS中表示一个人的信息(name gender age)
+        用基本类型数据表示:
+        var name="cai"
+        var gender= "girl";
+        var age = 8;
+        如果使用基本类型数据，我们创建的变量之间没有任何的联系，都是独立的个体
+
+        而对象属于一种符合类型的数据，在对象中可以保存多个不同数据类型的属性
+        对象的分类:
+        1.内建对象
+        -由ES标准中定义的对象，在任何的ES实现中都可以使用
+        比如：Math Boolean String Object Function....
+        2.宿主对象
+        -由JS运行环境提供的对象，目前来讲主要指浏览器提供的对象,可以直接拿来用
+        比如：BOM DOM console document..
+        3.自建对象(自定义对象)
+        -由开发人员自己创建的对象
+*/
+
+        //自定义对象
+        /*
+            使用new关键字调用的函数，是构造函数constructor
+            构造函数是专门用来创建对象的函数
+            使用typeof检查一个对象时，会返回object
+        */
+        var obj = new Object();
+        /*
+            在对象中保存的值称为属性
+            向对象添加属性
+             语法：对象.属性名 =属性值;
+        */
+       //在obj中添加一个name属性值
+       obj.name ="cai";
+        //在obj中添加一个genter属性值
+       obj.genter = "girl";
+        //在obj中添加一个age属性值
+       obj.age = 21;
+      
+       //打印出obj
+       console.log(obj);
+        /*
+            读取对象中的属性
+              语法：对象.属性名 
+       */
+       console.log(obj.name);
+       /*
+            修改对象的属性值
+            语法：对象.属性名 =新值
+       */
+      obj.name="caicai"
+      console.log(obj.name);
+      /*
+            删除对象的属性
+              语法：delete 对象.属性名
+      */
+       //delet obj.name;
+       
+       
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

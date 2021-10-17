@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /*
+            使div可以根据不同方向的方向键向不同方向移动
+            按左键向左 右键向右。。。
+        */
+       window.onload=function(){
+           var box1=document.getElementById('box1');
+           //创建一个速度
+           var speed=10;
+           //创建一个变量来表示方向
+           var dir=0;
+           //创建一个定时器
+           setInterval(function(){
+            switch(dir){
+                case 37:
+                box1.style.left=box1.offsetLeft-speed+"px";
+                break;
+                case 39:
+                box1.style.left=box1.offsetLeft+speed+"px";
+                break;
+                case 38:
+                box1.style.top=box1.offsetTop-speed+"px";
+                break;
+                case 40:
+                box1.style.top=box1.offsetTop+speed+"px";
+                break;
+            }
+           },30)
+           //为document绑定一个键盘按下事件
+           document.onkeydown=function(event){
+            event||window.event;
+            dir=event.keyCode;
+           }
+           //为document绑定一个键盘抬起事件
+           document.onkeyup=function(){
+               dir=0;
+           }
+       }
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*逻辑运算符
+        ！  非
+              -可以用来对一个值进行非运算
+              -所谓的非运算就是指对一个布尔值进行取反操作
+              -true变false false便true
+              -如果对一个值进行两次取反，他不会变化
+              -如果对一个非布尔值进行非运算，则会将其转换为布尔值然后再取反
+              -所以我们可以利用这个特点来将其他数据类型的值进行两次取反把他转换为布尔值，原理和
+              Boolean()函数一样
+        
+
+        &&  与
+              -&&可以对符号两侧的值进行运算并返回结果
+              -两个值中只要有一个false就返回一个false
+              -JS中的“与”属于短路的与，如果一个值为false则不会看第二个值
+              -第一个值为true则会检查第二个值，第一个值为false则不会检查第二个值
+            
+        ||  或
+              -或可以对符号两侧的值进行或运算
+              -两个值中只要有一个true就返回true,两个都是false则返回false
+              -js中的或属于短路的或，如果第一个值为true则不会检查第二个值
+
+        ||与&&非布尔值的情况
+              -非布尔值的值进行运算时，会先将其转换为布尔值，在进行运算并返回
+          与运算:
+              -与运算时，如果两个值转换的布尔值都是true则返回后面的值例如1&&2就返回2
+              -与运算时，如果两个值转换的布尔值中有false则返回靠前面的值
+              例如NaN&&0返回NaN
+          或运算：
+              -或运算时，如果第一个值为true则直接返回第一个值
+              -第一个值为false则值接返回第二个值
+
+        
+        
+        */
+       var a =true;
+       a = !a;
+       console.log("a="+a);
+       var b = "hello";
+       b = !!b;
+       console.log("b="+b);
+       var result =true&&false;
+       console.log("result="+result);
+       result =true&&true;
+       console.log("result="+result);
+       result=true&&alert("菜菜你好");
+       result=false||false;
+       console.log("result="+result);
+       result=true||false;
+       console.log("result="+result);
+       result=false||alert("菜菜你好");
+       console.log("result="+result);
+       //非布尔值的情况时
+       //true&&true
+       var cai= 1&&2;
+       console.log("cai="+cai);
+       cai=2&&1;
+       console.log("cai="+cai);
+       //false&&false
+       cai=NaN&&0;
+       console.log("cai="+cai);//NaN 
+       //或运算第一个值为true时
+       cai =1||2;
+       console.log("cai="+cai);//1
+       //或运算第一个值为false时
+       cai=0||1;
+       console.log("cai="+cai);//2
+       
+
+       
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

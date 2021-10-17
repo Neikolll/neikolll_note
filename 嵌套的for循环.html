@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*在页面中输入以下图形：
+                    *
+                    **
+                    ***
+                    ****
+                    *****
+
+        */
+       //通过一个for循环来输出图形
+       //这个for循环有几次，图形的高度就是多少
+       var a =0;
+       for(;a<5;a++){
+           //document.write("*****</br>");
+           //在循环内部再创建一个循环，来控制图形的宽度
+           //目前我们外部for循环执行一次内部for循环就会执行10次
+           //内层循环可以指定图形的一个宽度，执行几次，图形的宽度就是多少
+           for(var i=0;i<a+1;i++){
+               document.write("*");
+           }
+           //输出一个换行
+           document.write("</br>");
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

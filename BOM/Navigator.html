@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            BOM
+            -浏览器对象模型
+            -BOM可以使我们通过JS来操作浏览器
+            -在BOM中为我们提供了一组对象，用来完成对浏览器的操作
+            -BOM对象
+                Window
+                -代表的使整个浏览器的窗口，同时Window也是网页中的全局对象
+                Navigator
+                -代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器
+                Location
+                -代表当前浏览器的地址栏信息，通过Location可以获取地址栏信息，或者操作浏览器跳转页面
+                History
+                -代表浏览器的历史纪录，可以通过该对象来操作浏览器的历史纪录
+                由于隐私问题，该对象不能获取到具体的历史纪录，只能操作浏览器向前或向后
+                而且该操作只在当次访问时有效
+                Screen
+                -代表用户的屏幕的信息，通过该对象可以获取到用户的显示器的相关信息
+
+                这些BOM对象在浏览器中作用是全局的，可以直接使用，也可以通过window对象来使用
+                例如：alert(window.history);和alert(history);一样
+
+        */
+
+        /*
+        Navigator
+            -代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器
+            -由于历史原因，Navigator对象中的大部分属性都已经不能帮助我们识别浏览器了
+            -一般我们只会使用userAgent（用户代理，就等价于浏览器）来判断浏览器的信息
+                userAgent是一个字符串，这个字符串中包含有用来描述浏览器信息的内容
+                不同的浏览器会有不同的userAgent
+
+        chrome的userAgent
+        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+        火狐的userAgent
+        Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0
+        IE8
+        Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0)
+        IE9
+        Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0)
+        IE10
+        Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)
+        IE11
+        Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko
+        */
+      // console.log(navigator.userAgent);
+
+      /*
+        识别浏览器
+        就相当于识别userAgent,火狐里有Firefox chrome里有Chrome ie8-10里有MSIE
+
+        -在IE11中已经将微软和IE相关的表示都已经去除了，所以我们不能通过UserAgent来识别一个浏览器是否是
+        IE11了，但是IE中独有的方法还在，所以我们可以用IE独有的方法来判断是否为IE，
+        例如：currentStyle,attuchEvent,ActiveXObject
+        我们在IE11里能找到 ActiveXObject属性但是呢由于IE太作了，不想让我们知道自己有这个属性
+        所以我们不能直接用window.ActiveXObject应该用'ActiveXObject'in window来判断
+        
+      */
+     var us=navigator.userAgent;
+     if(/firefox/i.test(us)){
+         console.log("你是火狐");
+     }else if(/chrome/i.test(us)){
+         console.log("你是chrome")
+     }else if(/msie/i.test(us)){
+         console.log("你是IE");
+     }else if('ActiveXObject'in window){
+         console.log("你是IE11,我要s了你！！！");
+     }
+     
+     
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

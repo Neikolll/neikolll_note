@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数作用域
+                -调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁
+                -每调用一次函数就会创建一个新的函数作用域，他们之间是相互独立的
+                -在函数作用域中可以访问到全局作用域的变量,但在全局作用域中无法访问到函数作用域中的变量
+                -挡在函数作用域操作一个变量时，他会现在自身作用域中寻找，如果有就之间使用
+                如果没有则向上一级作用域中寻找，直到找到全局作用域为止
+                如果在全局作用域中没有找到，则会报错
+                在函数中想访问一个全局的a可以写window.a，不加window就是就近原则的a
+        */
+       //创建一个变量
+       var a =123;
+       function fun(){
+            console.log("a="+a);//输出结果为123，多以在函数作用域中可以访问到全局作用域的变量
+       }
+       function fun2(){
+           var a =456;
+       }
+       console.log("a="+a);//输出结果为123，他没有访问到函数fun2里面的变量a
+
+       /*
+            在函数作用域中也有声明提前的特性
+             -使用var关键字声明的变量，会在函数中多有的代码之前提前被声明（但不赋值 ）
+             -函数声明也会在函数中所有的代码执行之前执行
+
+       */
+      function sum(){
+          sum2();//下面声明的sum2函数会被执行，因为函数声明也会在函数中所有的代码执行之前执行
+          console.log("k="+k);
+          //var k=123; 不会被执行，因为提前声明了a以后并未赋值，直到这一行才被赋值
+          function sum2(){
+              alert("我是sum2")
+
+          }
+      }
+      /*
+            在函数中不使用var声明的变量都会成为全局变量
+      */
+      var i=33;
+      
+      function sayName(){
+            console.log("i="+i);
+            i=22;
+            d=55;//d没有设置var关键字，则会设置为全局变量
+      }
+      //在全局中输出一个i
+      console.log("i="+i);//22,这是因为在sayName函数中并没有声明变量i,所以这个i就是全局的i,
+      //只是在函数里让这个全局的i等于22了
+      //在全局中输出d
+      console.log("d="+d);//结果为55，因为在函数中不使用var声明的变量都会成为全局变量
+
+      /*
+            定义形参就相当于在函数作用域中声明了一个变量
+      */
+     function haha(p){//相当于var了一个p
+         alert(p);
+     }
+     haha();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

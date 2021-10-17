@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+        /*
+            拖拽box1元素
+            -拖拽流程：
+                1.当鼠标在被拖拽元素上被按下时候，开始拖拽
+                2.当鼠标移动时被拖拽元素跟随鼠标移动
+                3.当鼠标松开时，被拖拽元素固定在当前位置
+            鼠标被按下事件:onmousedown
+            鼠标移动事件：onmousemove
+            鼠标松开事件：onmouseup
+        */
+       var box1=document.getElementById("box1");
+       //给box1绑定一个鼠标被按下事件
+       box1.onmousedown=function(){
+        //鼠标是在document里面移动，所以我们为document绑定一个移动事件
+        //因为是按住移动所以我们要把移动事件写在按下事件里面
+        document.onmousemove=function(event){
+            var box1=document.getElementById("box1");
+            //鼠标移动哪里div就跟在哪里
+            //所以要获取鼠标移动的坐标
+            //解决兼容性问题
+            event=event||window.event;
+            //获取鼠标移动的坐标
+            var left=event.clientX;
+            var top=event.clientY;
+            //设置box1的偏移量
+            box1.style.left=left+"px";
+            box1.style.top=top+"px";
+            //当鼠标在document中松开时，被box1定住
+            document.onmouseup=function(){
+                //定住也就是取消移动
+                document.onmousemove=null;
+                //取消移动后，这个取消移动的事件也取消
+                document.onmouseup=null;
+            }
+         }
+
+       }
+      
+       
+       
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>
